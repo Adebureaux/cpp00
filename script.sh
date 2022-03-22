@@ -337,7 +337,7 @@ cd ..
 
 touch Makefile
 
-echo -n "NAME        = Program
+echo -n "NAME        = program
 
 SRCS        = srcs/main.cpp srcs/${FILENAME1_COPY}" > Makefile
 
@@ -368,7 +368,7 @@ CFLAGS      = -Wall -Wextra -Werror -std=c++98
 COMPILER    = c++
 
 \${NAME}: \${OBJS}
-		\${COMPILER} \${FLAGS} \${OBJS} -o \${NAME}
+		\${COMPILER} \${CFLAGS} \${OBJS} -o \${NAME}
 
 all :   \${NAME}
 
