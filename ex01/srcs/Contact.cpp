@@ -2,6 +2,11 @@
 
 Contact::Contact()
 {
+	return;
+}
+
+void CreateContact()
+{
 	do
 		std::cout << "Type the first name : ";
 	while (std::getline(std::cin, fname) && !fname[0]);

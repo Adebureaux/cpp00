@@ -12,7 +12,7 @@ int main(int ac, char **av)
 		std::cout << std::endl;
 		if (!std::strcmp(cmd.c_str(), "ADD"))
 		{
-			Contact new_contact;
+			CreateContact();
 		}
 		else if (!std::strcmp(cmd.c_str(), "SEARCH"))
 		{

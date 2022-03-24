@@ -15,6 +15,7 @@ class Contact
 	std::string secret;
 	Contact();
 	~Contact();
+	CreateContact();
 
 	private:
 
