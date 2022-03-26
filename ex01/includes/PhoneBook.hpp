@@ -10,9 +10,13 @@ class PhoneBook
 	public:
 	PhoneBook();
 	~PhoneBook();
+	Contact contact[8];
+	Contact AddContact();
+	void ShowContact(PhoneBook directory);
+	void DisplayDir(std::string str);
+	int nbr;
 
 	private:
-	Contact contact[8];
 
 };
 
