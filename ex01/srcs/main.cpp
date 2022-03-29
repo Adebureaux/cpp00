@@ -8,9 +8,11 @@ int main(int ac, char **av)
 	int i = 0;
 	directory.nbr = 0;
 
-	std::cout << "Type ADD, SEARCH or EXIT" << std::endl;
-	while (std::getline(std::cin, cmd))
+	while (1)
 	{
+		std::cout << "Type ADD, SEARCH or EXIT" << std::endl;
+		if (!std::getline(std::cin, cmd))
+			return (1);
 		std::cout << std::endl;
 		if (!std::strcmp(cmd.c_str(), "ADD"))
 		{
@@ -20,10 +22,9 @@ int main(int ac, char **av)
 				directory.nbr++;
 		}
 		else if (!std::strcmp(cmd.c_str(), "SEARCH"))
-			directory.ShowContact(directory);
+			directory.DisplayList(directory);
 		else if (!std::strcmp(cmd.c_str(), "EXIT"))
 			break;
-		std::cout << "Type ADD, SEARCH or EXIT" << std::endl;
 	}
 	return (0);	
 }

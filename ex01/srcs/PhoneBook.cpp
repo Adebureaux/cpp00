@@ -28,7 +28,7 @@ Contact PhoneBook::AddContact()
 	return (contact);
 }
 
-void PhoneBook::DisplayDir(std::string str)
+void PhoneBook::DisplayIndexInfo(std::string str)
 {
 	std::string s(str, 0, 10);
 	size_t len = s.length();
@@ -39,19 +39,48 @@ void PhoneBook::DisplayDir(std::string str)
 	std::cout << s;
 }
 
-void PhoneBook::ShowContact(PhoneBook directory)
+void PhoneBook::DisplayIndex(PhoneBook directory, int num)
 {
-	int i = -1;
+	std::cout << std::endl;
+	std::cout << "Index          : " << num << std::endl;
+	std::cout << "First name     : " << directory.contact[num - 1].fname << std::endl;
+	std::cout << "Last name      : " << directory.contact[num - 1].sname << std::endl;
+	std::cout << "Nickname       : " << directory.contact[num - 1].nname << std::endl;
+	std::cout << "Phone number   : " << directory.contact[num - 1].phone << std::endl;
+	std::cout << "Darkset secret : " << directory.contact[num - 1].secret << std::endl;
+	std::cout << std::endl;
+}
+
+void PhoneBook::DisplayList(PhoneBook directory)
+{
+	int num;
+	std::string index;
 
 	for (int i = 0; i < directory.nbr; i++)
 	{
 		std::cout << "         " << i + 1 << '|';
-		directory.DisplayDir(directory.contact[i].fname);
+		directory.DisplayIndexInfo(directory.contact[i].fname);
 		std::cout << '|';
-		directory.DisplayDir(directory.contact[i].sname);
+		directory.DisplayIndexInfo(directory.contact[i].sname);
 		std::cout << '|';
-		directory.DisplayDir(directory.contact[i].nname);
+		directory.DisplayIndexInfo(directory.contact[i].nname);
 		std::cout << std::endl;
+	}
+	if (directory.nbr)
+	{
+		std::cout << std::endl;
+		while (1)
+		{
+			std::cout << "Type the index : ";
+			if (!std::getline(std::cin, index))
+				break;
+			num = std::isdigit(index[0]) ? std::stoi(index) : 0;
+			if (num > 0 && num <= directory.nbr)
+			{
+				DisplayIndex(directory, num);
+				break;
+			}
+		}
 	}
 }
 
