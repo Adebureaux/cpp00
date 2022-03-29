@@ -17,7 +17,6 @@ class PhoneBook
 	void DisplayIndexInfo(std::string str);
 	void DisplayIndex(PhoneBook directory, int num);
 	int nbr;
-	int stop;
 
 	private:
 

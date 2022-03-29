@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <cstring>
 
 class Contact
 {
@@ -17,7 +18,6 @@ class Contact
 	int filled;
 
 	private:
-
 
 };
 
