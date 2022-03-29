@@ -18,7 +18,6 @@ class Contact
 
 	private:
 	int filled;
-
 };
 
 #endif
