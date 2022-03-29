@@ -14,11 +14,11 @@ class PhoneBook
 	Contact contact[8];
 	Contact AddContact();
 	void DisplayList(PhoneBook directory);
-	void DisplayIndexInfo(std::string str);
-	void DisplayIndex(PhoneBook directory, int num);
 	int nbr;
 
 	private:
+	void DisplayIndexInfo(std::string str);
+	void DisplayIndex(PhoneBook directory, int num);
 
 };
 

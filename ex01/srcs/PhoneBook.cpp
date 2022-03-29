@@ -9,6 +9,8 @@ PhoneBook::PhoneBook()
 Contact PhoneBook::AddContact()
 {
 	Contact contact;
+
+	std::cout << std::endl;
 	do
 		std::cout << "Type the first name : ";
 	while (std::getline(std::cin, contact.fname) && !contact.fname[0]);
@@ -56,6 +58,7 @@ void PhoneBook::DisplayList(PhoneBook directory)
 	int num;
 	std::string index;
 
+	std::cout << std::endl;
 	for (int i = 0; i < directory.nbr; i++)
 	{
 		std::cout << "         " << i + 1 << '|';
