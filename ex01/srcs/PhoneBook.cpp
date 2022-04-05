@@ -26,7 +26,7 @@ Contact PhoneBook::AddContact()
 	do
 		std::cout << "Type the darkest secret : ";
 	while (std::getline(std::cin, contact.secret) && !contact.secret[0]);
-	std::cout << std::endl;
+		std::cout << std::endl;
 	return (contact);
 }
 
