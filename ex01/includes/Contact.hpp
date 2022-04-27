@@ -15,9 +15,6 @@ class Contact
 	std::string nname;
 	std::string phone;
 	std::string secret;
-
-	private:
-	int filled;
 };
 
 #endif

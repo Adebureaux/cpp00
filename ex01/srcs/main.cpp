@@ -1,10 +1,10 @@
 #include "../includes/PhoneBook.hpp"
 
-int main(int ac, char **av)
+int main(void)
 {
+	int i = 0;
 	PhoneBook directory;
 	std::string cmd;
-	int i = 0;
 	directory.nbr = 0;
 
 	while (1)
