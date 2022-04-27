@@ -14,7 +14,7 @@ ${NAME}: ${OBJS}
 		${COMPILER} ${CFLAGS} ${OBJS} -o ${NAME}
 
 %.o: %.cpp
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(COMPILER) $(CFLAGS) -c $< -o $@
 
 all: ${NAME}
 
