@@ -69,6 +69,7 @@ void PhoneBook::DisplayList(PhoneBook directory)
 		directory.DisplayIndexInfo(directory.contact[i].nname);
 		std::cout << std::endl;
 	}
+	std::string::size_type sz;
 	if (directory.nbr)
 	{
 		std::cout << std::endl;

@@ -1,14 +1,20 @@
 #include <iostream>
 
+std::string str_toupper(char *cstr)
+{
+	std::string str = cstr;
+	
+	for (int i = 0; str[i]; i++)
+		str[i] = std::toupper((size_t)str.at(i));
+	return (str);
+}
+
 int main(int ac, char **av)
 {
 	if (ac < 2)
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
 	for (int i = 1; i < ac; i++)
-	{
-		for (int j = 0; av[i][j]; j++)
-			std::cout << (char)toupper(av[i][j]);
-	}
+		std::cout << str_toupper(av[i]);
 	std::cout << std::endl;
 	return (0);
 }

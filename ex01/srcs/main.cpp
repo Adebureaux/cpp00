@@ -12,16 +12,16 @@ int main(void)
 		std::cout << "Type ADD, SEARCH or EXIT" << std::endl;
 		if (!std::getline(std::cin, cmd))
 			return (1);
-		if (!std::strcmp(cmd.c_str(), "ADD"))
+		if (!cmd.compare("ADD"))
 		{
 			directory.contact[i] = directory.AddContact();
 			i == 7 ? i = 0 : i++;
 			if (directory.nbr < 8)
 				directory.nbr++;
 		}
-		else if (!std::strcmp(cmd.c_str(), "SEARCH"))
+		else if (!cmd.compare("SEARCH"))
 			directory.DisplayList(directory);
-		else if (!std::strcmp(cmd.c_str(), "EXIT"))
+		else if (!cmd.compare("EXIT"))
 			break;
 		std::cout << std::endl;
 	}
