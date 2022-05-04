@@ -77,7 +77,7 @@ void PhoneBook::DisplayList(PhoneBook directory)
 			std::cout << "Type the index : ";
 			if (!std::getline(std::cin, index))
 				break;
-			num = std::isdigit(index[0]) ? std::stoi(index) : 0;
+			num = std::isdigit(index[0]) ? std::atoi(index.c_str()) : 0;
 			if (num > 0 && num <= directory.nbr)
 			{
 				DisplayIndex(directory, num);
