@@ -5,7 +5,7 @@ int main(void)
 	int i = 0;
 	PhoneBook directory;
 	std::string cmd;
-	directory.nbr = 0;
+	directory.setNbr(0);
 
 	while (1)
 	{
@@ -14,13 +14,13 @@ int main(void)
 			return (1);
 		if (!cmd.compare("ADD"))
 		{
-			directory.contact[i] = directory.AddContact();
+			directory.addContact(i);
 			i == 7 ? i = 0 : i++;
-			if (directory.nbr < 8)
-				directory.nbr++;
+			if (directory.getNbr() < 8)
+				directory.setNbr(directory.getNbr() + 1);
 		}
 		else if (!cmd.compare("SEARCH"))
-			directory.DisplayList(directory);
+			directory.displayList(directory);
 		else if (!cmd.compare("EXIT"))
 			break;
 		std::cout << std::endl;

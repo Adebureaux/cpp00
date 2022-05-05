@@ -6,31 +6,45 @@ PhoneBook::PhoneBook()
 	return;
 }
 
-Contact PhoneBook::AddContact()
+int PhoneBook::getNbr(void)
 {
-	Contact contact;
+	return (this->nbr);
+}
+
+void PhoneBook::setNbr(int nbr)
+{
+	this->nbr = nbr;
+}
+
+void PhoneBook::addContact(int i)
+{
+	std::string dst;
 
 	std::cout << std::endl;
 	do
 		std::cout << "Type the first name : ";
-	while (std::getline(std::cin, contact.fname) && !contact.fname[0]);
+	while (std::getline(std::cin, dst) && !dst[0]);
+	this->contact[i].setFname(dst);
 	do
 		std::cout << "Type the second name : ";
-	while (std::getline(std::cin, contact.sname) && !contact.sname[0]);
+	while (std::getline(std::cin, dst) && !dst[0]);
+	this->contact[i].setSname(dst);
 	do
 		std::cout << "Type the nickname : ";
-	while (std::getline(std::cin, contact.nname) && !contact.nname[0]);
+	while (std::getline(std::cin, dst) && !dst[0]);
+	this->contact[i].setNname(dst);
 	do
 		std::cout << "Type the phone number : ";
-	while (std::getline(std::cin, contact.phone) && !contact.phone[0]);
+	while (std::getline(std::cin, dst) && !dst[0]);
+	this->contact[i].setPhone(dst);
 	do
 		std::cout << "Type the darkest secret : ";
-	while (std::getline(std::cin, contact.secret) && !contact.secret[0]);
-		std::cout << std::endl;
-	return (contact);
+	while (std::getline(std::cin, dst) && !dst[0]);
+	this->contact[i].setSecret(dst);
+	std::cout << std::endl;
 }
 
-void PhoneBook::DisplayIndexInfo(std::string str)
+void PhoneBook::displayIndexInfo(std::string str)
 {
 	std::string s(str, 0, 10);
 	size_t len = s.length();
@@ -41,19 +55,19 @@ void PhoneBook::DisplayIndexInfo(std::string str)
 	std::cout << s;
 }
 
-void PhoneBook::DisplayIndex(PhoneBook directory, int num)
+void PhoneBook::displayIndex(PhoneBook directory, int num)
 {
 	std::cout << std::endl;
 	std::cout << "Index          : " << num << std::endl;
-	std::cout << "First name     : " << directory.contact[num - 1].fname << std::endl;
-	std::cout << "Last name      : " << directory.contact[num - 1].sname << std::endl;
-	std::cout << "Nickname       : " << directory.contact[num - 1].nname << std::endl;
-	std::cout << "Phone number   : " << directory.contact[num - 1].phone << std::endl;
-	std::cout << "Darkset secret : " << directory.contact[num - 1].secret << std::endl;
+	std::cout << "First name     : " << directory.contact[num - 1].getFname() << std::endl;
+	std::cout << "Last name      : " << directory.contact[num - 1].getSname() << std::endl;
+	std::cout << "Nickname       : " << directory.contact[num - 1].getNname() << std::endl;
+	std::cout << "Phone number   : " << directory.contact[num - 1].getPhone() << std::endl;
+	std::cout << "Darkset secret : " << directory.contact[num - 1].getSecret() << std::endl;
 	std::cout << std::endl;
 }
 
-void PhoneBook::DisplayList(PhoneBook directory)
+void PhoneBook::displayList(PhoneBook directory)
 {
 	int num;
 	std::string index;
@@ -62,11 +76,11 @@ void PhoneBook::DisplayList(PhoneBook directory)
 	for (int i = 0; i < directory.nbr; i++)
 	{
 		std::cout << "         " << i + 1 << '|';
-		directory.DisplayIndexInfo(directory.contact[i].fname);
+		directory.displayIndexInfo(directory.contact[i].getFname());
 		std::cout << '|';
-		directory.DisplayIndexInfo(directory.contact[i].sname);
+		directory.displayIndexInfo(directory.contact[i].getSname());
 		std::cout << '|';
-		directory.DisplayIndexInfo(directory.contact[i].nname);
+		directory.displayIndexInfo(directory.contact[i].getNname());
 		std::cout << std::endl;
 	}
 	if (directory.nbr)
@@ -80,7 +94,7 @@ void PhoneBook::DisplayList(PhoneBook directory)
 			num = std::isdigit(index[0]) ? std::atoi(index.c_str()) : 0;
 			if (num > 0 && num <= directory.nbr)
 			{
-				DisplayIndex(directory, num);
+				displayIndex(directory, num);
 				break;
 			}
 		}

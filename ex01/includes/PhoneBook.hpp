@@ -11,14 +11,17 @@ class PhoneBook
 	public:
 	PhoneBook();
 	~PhoneBook();
-	Contact contact[8];
-	Contact AddContact();
-	void DisplayList(PhoneBook directory);
-	int nbr;
+
+	int getNbr(void);
+	void setNbr(int nbr);
+	void addContact(int i);
+	void displayList(PhoneBook directory);
 
 	private:
-	void DisplayIndexInfo(std::string str);
-	void DisplayIndex(PhoneBook directory, int num);
+	int nbr;
+	Contact contact[8];
+	void displayIndexInfo(std::string str);
+	void displayIndex(PhoneBook directory, int num);
 };
 
 #endif

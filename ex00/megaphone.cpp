@@ -1,11 +1,9 @@
 #include <iostream>
 
-std::string str_toupper(char *cstr)
+std::string str_toupper(std::string str)
 {
-	std::string str = cstr;
-	
 	for (int i = 0; str[i]; i++)
-		str[i] = std::toupper((size_t)str.at(i));
+		str[i] = std::toupper(str[i]);
 	return (str);
 }
 
