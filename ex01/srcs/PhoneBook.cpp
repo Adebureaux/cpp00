@@ -97,6 +97,8 @@ void PhoneBook::displayList(PhoneBook directory)
 				displayIndex(directory, num);
 				break;
 			}
+			else
+				std::cout << "error: type a valid index" << std::endl;
 		}
 	}
 }
